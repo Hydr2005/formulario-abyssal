@@ -1,93 +1,33 @@
-const WEBHOOK = "https://discord.com/api/webhooks/1479434819267199047/xlL5ulI0lMyGduFZI1mP33QwF9qNYkXH0GQhxUyEHLRufsPr5Z-gzyyur457wnXM57S3";
+const textareas = document.querySelectorAll("textarea")
+const counters = document.querySelectorAll(".counter")
+const progress = document.getElementById("progress-bar")
 
-const user = JSON.parse(localStorage.getItem("discord_user"));
+textareas.forEach((t,i)=>{
 
-if(!user){
+t.addEventListener("input",()=>{
 
-window.location.href="index.html";
+let max = t.getAttribute("maxlength")
 
-}
+counters[i].innerText = t.value.length + "/" + max
 
-document.getElementById("user").innerHTML = `
-
-<div class="user-box">
-
-<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png">
-
-<span>${user.username}#${user.discriminator}</span>
-
-</div>
-
-`;
-
-document.getElementById("form").addEventListener("submit",async(e)=>{
-
-e.preventDefault();
-
-const p1=document.getElementById("p1").value;
-const p2=document.getElementById("p2").value;
-const p3=document.getElementById("p3").value;
-const p4=document.getElementById("p4").value;
-
-const embed={
-
-title:"Nueva postulación Abyssal",
-
-color:10181046,
-
-thumbnail:{
-url:`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
-},
-
-fields:[
-
-{
-name:"Usuario",
-value:`${user.username} (${user.id})`
-},
-
-{
-name:"¿Por qué elegirte?",
-value:p1
-},
-
-{
-name:"Motivación staff",
-value:p2
-},
-
-{
-name:"Cualidades",
-value:p3
-},
-
-{
-name:"Extra",
-value:p4 || "Nada"
-}
-
-]
-
-};
-
-await fetch(WEBHOOK,{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-embeds:[embed]
+updateProgress()
 
 })
 
-});
+})
 
-alert("Postulación enviada correctamente");
+function updateProgress(){
 
-document.getElementById("form").reset();
+let filled = 0
 
-});
+textareas.forEach(t=>{
+
+if(t.value.length > 0) filled++
+
+})
+
+let percent = (filled / textareas.length) * 100
+
+progress.style.width = percent + "%"
+
+}
