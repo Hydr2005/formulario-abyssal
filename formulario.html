@@ -2,8 +2,10 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
-<title>Abyssal | Postulación Staff</title>
+
+<title>Formulario Staff</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -14,64 +16,88 @@
 <div class="container">
 
 <h1 class="logo">ABYSSAL</h1>
-<p class="subtitle">Formulario de Postulación al Staff</p>
 
-<div id="user"></div>
+<div id="user" class="user-box"></div>
+
+<div class="progress">
+
+<div id="progress-bar"></div>
+
+</div>
 
 <form id="form">
 
 <div class="question">
 
-<h3>¿Por qué crees que deberíamos elegirte a ti y no a otra persona?</h3>
-<textarea id="p1" placeholder="Explica por qué eres una buena elección..." required></textarea>
+<h3>¿Por qué deberíamos elegirte?</h3>
+
+<textarea maxlength="500" required></textarea>
+
+<span class="counter">0/500</span>
 
 </div>
 
 <div class="question">
 
-<h3>¿Por qué quieres pertenecer al staffteam de Abyssal?</h3>
-<textarea id="p2" placeholder="Cuéntanos tu motivación..." required></textarea>
+<h3>¿Por qué quieres pertenecer al staffteam?</h3>
+
+<textarea maxlength="500" required></textarea>
+
+<span class="counter">0/500</span>
 
 </div>
 
 <div class="question">
 
 <h3>¿Qué cualidades destacan en ti?</h3>
-<textarea id="p3" placeholder="Responsabilidad, liderazgo, experiencia..." required></textarea>
+
+<textarea maxlength="500" required></textarea>
+
+<span class="counter">0/500</span>
 
 </div>
 
 <div class="question">
 
-<h3>Dos miembros de Abyssal comienzan una discusión fuerte en público dentro del servidor. ¿Cómo manejarías la situación?</h3>
-<textarea id="p4" placeholder="Explica cómo actuarías como moderador..." required></textarea>
+<h3>Dos miembros comienzan una discusión fuerte en público ¿cómo actuarías?</h3>
+
+<textarea maxlength="600" required></textarea>
+
+<span class="counter">0/600</span>
 
 </div>
 
 <div class="question">
 
-<h3>Descubres que alguien del staff está filtrando información interna. No tienes pruebas completas. ¿Qué harías?</h3>
-<textarea id="p5" placeholder="Describe cómo investigarías la situación..." required></textarea>
+<h3>Descubres filtración de información del staff ¿qué harías?</h3>
+
+<textarea maxlength="600" required></textarea>
+
+<span class="counter">0/600</span>
 
 </div>
 
 <div class="question">
 
-<h3>El staff implementa una nueva regla pero la comunidad está en contra. ¿Cómo manejarías la situación?</h3>
-<textarea id="p6" placeholder="Explica cómo gestionarías la comunidad..." required></textarea>
+<h3>La comunidad protesta contra una regla nueva ¿cómo lo gestionarías?</h3>
+
+<textarea maxlength="600" required></textarea>
+
+<span class="counter">0/600</span>
 
 </div>
 
 <div class="question">
 
-<h3>Un miembro del staff abusa de sus permisos pero es amigo de administradores. ¿Cómo actuarías?</h3>
-<textarea id="p7" placeholder="Describe cómo manejarías esto profesionalmente..." required></textarea>
+<h3>Un staff abusa de permisos pero es amigo de admins ¿qué harías?</h3>
+
+<textarea maxlength="600" required></textarea>
+
+<span class="counter">0/600</span>
 
 </div>
 
-<button type="submit" class="submit-btn">
-Enviar Postulación
-</button>
+<button class="submit-btn">Enviar solicitud</button>
 
 </form>
 
