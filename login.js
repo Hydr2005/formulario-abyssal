@@ -1,16 +1,11 @@
-const CLIENT_ID="1479450889654763520";
+const CLIENT_ID = "1479450889654763520";
 
-const REDIRECT=window.location.origin+"/callback.html";
+const REDIRECT_URI = "https://TUUSUARIO.github.io/abyssal-form/callback.html";
 
-document.getElementById("login").onclick=function(){
+function login(){
 
-const url=
-"https://discord.com/oauth2/authorize"+
-"?client_id="+CLIENT_ID+
-"&response_type=token"+
-"&redirect_uri="+encodeURIComponent(REDIRECT)+
-"&scope=identify";
+const url = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
 
-window.location=url;
+window.location.href = url;
 
-};
+}

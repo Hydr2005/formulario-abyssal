@@ -1,92 +1,93 @@
-const webhook="https://discord.com/api/webhooks/1479434819267199047/xlL5ulI0lMyGduFZI1mP33QwF9qNYkXH0GQhxUyEHLRufsPr5Z-gzyyur457wnXM57S3";
+const WEBHOOK = "https://discord.com/api/webhooks/1479434819267199047/xlL5ulI0lMyGduFZI1mP33QwF9qNYkXH0GQhxUyEHLRufsPr5Z-gzyyur457wnXM57S3";
 
-const token=localStorage.getItem("discord_token");
+const user = JSON.parse(localStorage.getItem("discord_user"));
 
-if(!token){
+if(!user){
 
-window.location="index.html";
+window.location.href="index.html";
 
 }
 
-async function getUser(){
+document.getElementById("user").innerHTML = `
 
-const res=await fetch(
-"https://discord.com/api/users/@me",
-{
-headers:{
-authorization:"Bearer "+token
-}
-});
+<div class="user-box">
 
-const user=await res.json();
+<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png">
 
-window.user=user;
+<span>${user.username}#${user.discriminator}</span>
 
-document.getElementById("user").innerHTML=
-`
-<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png" width="60">
-<p>${user.username}</p>
-<p>ID: ${user.id}</p>
+</div>
+
 `;
 
-}
-
-getUser();
-
-const form=document.getElementById("form");
-
-form.addEventListener("submit",async e=>{
+document.getElementById("form").addEventListener("submit",async(e)=>{
 
 e.preventDefault();
 
-const data=new FormData(form);
+const p1=document.getElementById("p1").value;
+const p2=document.getElementById("p2").value;
+const p3=document.getElementById("p3").value;
+const p4=document.getElementById("p4").value;
 
 const embed={
-embeds:[{
 
-title:"Nueva solicitud Staff Abyssal",
+title:"Nueva postulación Abyssal",
 
 color:10181046,
 
+thumbnail:{
+url:`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
+},
+
 fields:[
 
-{name:"Usuario",value:user.username,inline:true},
+{
+name:"Usuario",
+value:`${user.username} (${user.id})`
+},
 
-{name:"ID",value:user.id,inline:true},
+{
+name:"¿Por qué elegirte?",
+value:p1
+},
 
-{name:"Edad",value:data.get("edad")},
+{
+name:"Motivación staff",
+value:p2
+},
 
-{name:"Discusión miembros",value:data.get("discusion")},
+{
+name:"Cualidades",
+value:p3
+},
 
-{name:"Filtración staff",value:data.get("filtracion")},
-
-{name:"Protesta comunidad",value:data.get("regla")},
-
-{name:"Abuso permisos",value:data.get("abuso")},
-
-{name:"Por qué elegirte",value:data.get("porque")},
-
-{name:"Motivación",value:data.get("motivacion")},
-
-{name:"Cualidades",value:data.get("cualidades")},
-
-{name:"Extra",value:data.get("extra")}
+{
+name:"Extra",
+value:p4 || "Nada"
+}
 
 ]
 
-}]
 };
 
-await fetch(webhook,{
+await fetch(WEBHOOK,{
+
 method:"POST",
+
 headers:{
 "Content-Type":"application/json"
 },
-body:JSON.stringify(embed)
+
+body:JSON.stringify({
+
+embeds:[embed]
+
+})
+
 });
 
 alert("Postulación enviada correctamente");
 
-form.reset();
+document.getElementById("form").reset();
 
 });
