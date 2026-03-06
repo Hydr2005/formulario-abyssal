@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Postulación Staff - Abyssal</title>
-<link rel="stylesheet" href="styles.css">
+<title>Formulario Staff Abyssal</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Postulación Staff Abyssal</h1>
+<h1>Formulario Staff Abyssal</h1>
+
+<h3>Requisitos</h3>
+
+<ul>
+<li>Tener 14 o más años</li>
+<li>Tener micrófono activo</li>
+<li>Ser activo en la comunidad</li>
+<li>No tener sanciones en Abyssal</li>
+</ul>
+
+<div class="progress">
+<div class="progress-bar" id="progress"></div>
+</div>
 
 <form id="form">
 
+<label>Edad</label>
+<input name="edad" required>
+
 <label>ID de Discord</label>
-<input type="text" name="discord_id" placeholder="Ej: 123456789012345678" required>
+<input name="discord_id" required>
 
-<label>¿Cuál es tu edad?</label>
-<input type="number" name="edad" required>
-
-<label>¿Cuál es tu nombre en Discord?</label>
-<input type="text" name="discord_nombre" required>
+<label>Nombre de Discord</label>
+<input name="discord_nombre" required>
 
 <label>Dos miembros de Abyssal comienzan una discusión fuerte...</label>
 <textarea name="discusion" required></textarea>
 
-<label>Descubres que alguien del equipo está filtrando información...</label>
+<label>Descubres que alguien del staff filtra información...</label>
 <textarea name="filtracion" required></textarea>
 
 <label>El staff decide implementar una regla nueva...</label>
 <textarea name="regla" required></textarea>
 
-<label>Un miembro del staff empieza a abusar de permisos...</label>
+<label>Un miembro del staff abusa de permisos...</label>
 <textarea name="abuso" required></textarea>
 
-<label>¿Por qué crees que deberíamos elegirte?</label>
+<label>¿Por qué deberíamos elegirte?</label>
 <textarea name="porque_elegirte" required></textarea>
 
-<label>¿Por qué quieres pertenecer al staffteam de abyssal?</label>
+<label>¿Por qué quieres pertenecer al staff?</label>
 <textarea name="motivacion" required></textarea>
 
 <label>¿Qué cualidades destacan en ti?</label>
 <textarea name="cualidades" required></textarea>
 
-<label>¿Algo más que quieras añadir a tu postulación?</label>
+<label>¿Algo más que quieras añadir?</label>
 <textarea name="extra"></textarea>
 
 <button type="submit">Enviar formulario</button>
