@@ -65,13 +65,13 @@ fields:[
 
 {name:"Usuario",value:`${user.username} (${user.id})`},
 
-{name:"Respuesta 1",value:answers[0]},
-{name:"Respuesta 2",value:answers[1]},
-{name:"Respuesta 3",value:answers[2]},
-{name:"Respuesta 4",value:answers[3]},
-{name:"Respuesta 5",value:answers[4]},
-{name:"Respuesta 6",value:answers[5]},
-{name:"Respuesta 7",value:answers[6]}
+{name:"Porque deberiamos elegirte",value:answers[0]},
+{name:"Porque quieres pertenecer al staffteam",value:answers[1]},
+{name:"Cualidades que destacan de ti",value:answers[2]},
+{name:"Actuacion sobre la discusion",value:answers[3]},
+{name:"Filtracion de informacion del Staff",value:answers[4]},
+{name:"Protesta sobre la regla",value:answers[5]},
+{name:"Abuso de permisos",value:answers[6]}
 
 ]
 
@@ -94,3 +94,4 @@ embeds:[embed]
 alert("Postulación enviada correctamente");
 
 });
+
