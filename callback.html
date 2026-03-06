@@ -10,24 +10,24 @@
 
 <script>
 
-const hash=window.location.hash;
+const hash = window.location.hash.substring(1)
+const params = new URLSearchParams(hash)
 
-if(!hash){
+const token = params.get("access_token")
 
-window.location="index.html";
+if(token){
+
+localStorage.setItem("discord_token",token)
+
+window.location="formulario.html"
+
+}else{
+
+document.body.innerHTML="Error al iniciar sesión"
 
 }
-
-const params=new URLSearchParams(hash.replace("#",""));
-
-const token=params.get("access_token");
-
-localStorage.setItem("discord_token",token);
-
-window.location="formulario.html";
 
 </script>
 
 </body>
-
 </html>

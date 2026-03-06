@@ -25,8 +25,8 @@ window.user=user;
 document.getElementById("user").innerHTML=
 `
 <img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png" width="60">
-
-<p>${user.username}#${user.discriminator}</p>
+<p>${user.username}</p>
+<p>ID: ${user.id}</p>
 `;
 
 }
@@ -50,9 +50,9 @@ color:10181046,
 
 fields:[
 
-{name:"Usuario",value:user.username,true},
+{name:"Usuario",value:user.username,inline:true},
 
-{name:"ID",value:user.id,true},
+{name:"ID",value:user.id,inline:true},
 
 {name:"Edad",value:data.get("edad")},
 
@@ -75,7 +75,6 @@ fields:[
 ]
 
 }]
-
 };
 
 await fetch(webhook,{
@@ -86,7 +85,7 @@ headers:{
 body:JSON.stringify(embed)
 });
 
-alert("Postulación enviada");
+alert("Postulación enviada correctamente");
 
 form.reset();
 
