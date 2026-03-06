@@ -1,67 +1,57 @@
-const webhook="https://discord.com/api/webhooks/1479434819267199047/xlL5ulI0lMyGduFZI1mP33QwF9qNYkXH0GQhxUyEHLRufsPr5Z-gzyyur457wnXM57S3";
+const form = document.getElementById("form");
 
-document.getElementById("form").addEventListener("submit",async e=>{
+form.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-const data=new FormData(e.target);
+const webhook="https://discord.com/api/webhooks/1479434819267199047/xlL5ulI0lMyGduFZI1mP33QwF9qNYkXH0GQhxUyEHLRufsPr5Z-gzyyur457wnXM57S3";
 
-const user=JSON.parse(localStorage.getItem("discord_user"));
+const data = new FormData(form);
 
-const avatar=`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+const mensaje = {
+content: `
+📩 **Nueva Postulación Staff**
 
-const payload={
+🆔 **ID Discord:** ${data.get("discord_id")}
+👤 **Usuario:** ${data.get("discord_nombre")}
+🎂 **Edad:** ${data.get("edad")}
 
-embeds:[{
+💬 **Discusión entre miembros**
+${data.get("discusion")}
 
-title:"Nueva postulación Staff Abyssal",
+🔎 **Filtración de información**
+${data.get("filtracion")}
 
-color:9442302,
+📜 **Regla nueva**
+${data.get("regla")}
 
-thumbnail:{url:avatar},
+⚠ **Abuso de permisos**
+${data.get("abuso")}
 
-fields:[
+⭐ **Por qué elegirte**
+${data.get("porque_elegirte")}
 
-{name:"Usuario",value:user.username},
+🔥 **Motivación**
+${data.get("motivacion")}
 
-{name:"ID",value:user.id},
+💪 **Cualidades**
+${data.get("cualidades")}
 
-{name:"Edad",value:data.get("edad")},
-
-{name:"Discord",value:data.get("discord")},
-
-{name:"Discusión miembros",value:data.get("situacion1")},
-
-{name:"Filtración staff",value:data.get("situacion2")},
-
-{name:"Regla nueva",value:data.get("situacion3")},
-
-{name:"Abuso permisos",value:data.get("situacion4")},
-
-{name:"Por qué elegirte",value:data.get("p1")},
-
-{name:"Motivación",value:data.get("p2")},
-
-{name:"Cualidades",value:data.get("p3")},
-
-{name:"Extra",value:data.get("p4")}
-
-],
-
-timestamp:new Date()
-
-}]
-
+➕ **Extra**
+${data.get("extra")}
+`
 };
 
 await fetch(webhook,{
-
 method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(payload)
-
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(mensaje)
 });
 
-alert("Solicitud enviada correctamente");
+alert("Formulario enviado correctamente");
+
+form.reset();
 
 });
