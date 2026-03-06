@@ -5,199 +5,97 @@ font-family:Segoe UI;
 background:black;
 background-image:url("fondo.gif");
 background-size:cover;
-background-position:center;
 
 color:white;
+
+}
+
+.login-body{
+
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
 
 }
 
 .logo{
 
-text-align:center;
-font-size:60px;
-
-color:#b16cff;
-
-text-shadow:
-
-0 0 10px #b16cff,
-0 0 20px #9333ea,
-0 0 40px #9333ea;
-
-}
-
-.subtitle{
-
-text-align:center;
-opacity:0.7;
-
-}
-
-.login{
-
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+font-size:70px;
+color:#b56cff;
+text-shadow:0 0 25px #b56cff;
 
 }
 
 .login-box{
 
-background:rgba(0,0,0,0.7);
-padding:40px;
-border-radius:20px;
-
-backdrop-filter:blur(10px);
+text-align:center;
 
 }
 
-.discord-btn{
+button{
 
 background:#5865F2;
-
 border:none;
-
 padding:15px 30px;
-
-color:white;
-
 font-size:18px;
-
+color:white;
 border-radius:10px;
-
 cursor:pointer;
-
-transition:0.3s;
-
-}
-
-.discord-btn:hover{
-
-transform:scale(1.1);
-
-box-shadow:0 0 20px #5865F2;
 
 }
 
 .container{
 
 max-width:800px;
-
 margin:auto;
-
 background:rgba(0,0,0,0.75);
-
 padding:40px;
-
 border-radius:20px;
-
-backdrop-filter:blur(10px);
-
-}
-
-.question{
-
-margin-bottom:30px;
-
-padding:20px;
-
-border-radius:12px;
-
-background:rgba(255,255,255,0.05);
-
-transition:0.3s;
-
-}
-
-.question:hover{
-
-transform:scale(1.02);
-
-box-shadow:0 0 15px #9333ea;
 
 }
 
 textarea{
 
 width:100%;
-
-height:120px;
-
-border:none;
-
+height:90px;
+margin-bottom:5px;
 border-radius:8px;
-
-background:#111;
-
-color:white;
-
+border:none;
 padding:10px;
+background:#111;
+color:white;
 
 }
 
 .counter{
 
 font-size:12px;
-
 opacity:0.7;
-
 float:right;
+margin-bottom:20px;
 
 }
 
-.submit-btn{
-
-width:100%;
-
-padding:18px;
-
-background:#9333ea;
-
-border:none;
-
-border-radius:10px;
-
-font-size:18px;
-
-color:white;
-
-cursor:pointer;
-
-transition:0.3s;
-
-}
-
-.submit-btn:hover{
+button:hover{
 
 transform:scale(1.05);
-
-box-shadow:0 0 20px #9333ea;
 
 }
 
 .progress{
 
 height:6px;
-
 background:#111;
-
+margin-bottom:20px;
 border-radius:10px;
-
-margin-bottom:30px;
 
 }
 
 #progress-bar{
 
 height:6px;
-
 width:0%;
-
-background:#9333ea;
-
-border-radius:10px;
-
-transition:0.3s;
+background:#b56cff;
 
 }
