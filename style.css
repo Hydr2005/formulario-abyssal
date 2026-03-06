@@ -2,15 +2,16 @@ body{
 
 font-family:Arial;
 
-background:black;
-background-image:url("fondo.gif");
+background:url("fondo.gif");
+
 background-size:cover;
-background-position:center;
 
 color:white;
 
 display:flex;
+
 justify-content:center;
+
 align-items:center;
 
 min-height:100vh;
@@ -21,35 +22,13 @@ min-height:100vh;
 
 background:rgba(0,0,0,0.8);
 
-padding:35px;
+padding:40px;
 
 border-radius:15px;
 
 width:520px;
 
-box-shadow:0 0 40px purple;
-
-}
-
-h1{
-
-text-align:center;
-
-margin-bottom:15px;
-
-}
-
-ul{
-
-margin-bottom:20px;
-
-}
-
-label{
-
-display:block;
-
-margin-top:15px;
+box-shadow:0 0 50px purple;
 
 }
 
@@ -59,17 +38,11 @@ width:100%;
 
 padding:10px;
 
-border-radius:6px;
+margin-top:10px;
 
 border:none;
 
-margin-top:5px;
-
-}
-
-textarea{
-
-height:80px;
+border-radius:6px;
 
 }
 
@@ -83,11 +56,11 @@ padding:12px;
 
 background:#7a2fff;
 
-color:white;
-
 border:none;
 
 border-radius:6px;
+
+color:white;
 
 font-size:16px;
 
@@ -99,15 +72,13 @@ transition:0.3s;
 
 button:hover{
 
-background:#a259ff;
-
 transform:scale(1.05);
+
+background:#9a4dff;
 
 }
 
 .progress{
-
-width:100%;
 
 height:8px;
 
@@ -115,7 +86,7 @@ background:#333;
 
 border-radius:5px;
 
-margin-bottom:20px;
+margin:20px 0;
 
 }
 
@@ -128,7 +99,5 @@ width:0%;
 background:#a259ff;
 
 border-radius:5px;
-
-transition:0.3s;
 
 }

@@ -1,65 +1,81 @@
 const webhook="https://discord.com/api/webhooks/1479434819267199047/xlL5ulI0lMyGduFZI1mP33QwF9qNYkXH0GQhxUyEHLRufsPr5Z-gzyyur457wnXM57S3";
 
-const form=document.getElementById("form");
-const inputs=document.querySelectorAll("input,textarea");
-const progress=document.getElementById("progress");
+const token=localStorage.getItem("discord_token");
 
-inputs.forEach(i=>{
-i.addEventListener("input",updateProgress);
-});
+if(!token){
 
-function updateProgress(){
-
-let filled=0;
-
-inputs.forEach(i=>{
-if(i.value.trim()!=="") filled++;
-});
-
-let percent=(filled/inputs.length)*100;
-
-progress.style.width=percent+"%";
+window.location="index.html";
 
 }
 
-form.addEventListener("submit",async function(e){
+async function getUser(){
+
+const res=await fetch(
+"https://discord.com/api/users/@me",
+{
+headers:{
+authorization:"Bearer "+token
+}
+});
+
+const user=await res.json();
+
+window.user=user;
+
+document.getElementById("user").innerHTML=
+`
+<img src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png" width="60">
+
+<p>${user.username}#${user.discriminator}</p>
+`;
+
+}
+
+getUser();
+
+const form=document.getElementById("form");
+
+form.addEventListener("submit",async e=>{
 
 e.preventDefault();
 
 const data=new FormData(form);
 
-const mensaje={
-content:`
-📨 **Nueva Postulación Staff Abyssal**
+const embed={
+embeds:[{
 
-👤 Usuario: ${data.get("discord_nombre")}
-🆔 ID: ${data.get("discord_id")}
-🎂 Edad: ${data.get("edad")}
+title:"Nueva solicitud Staff Abyssal",
 
-🗣 Discusión miembros
-${data.get("discusion")}
+color:10181046,
 
-🔎 Filtración
-${data.get("filtracion")}
+fields:[
 
-📜 Regla nueva
-${data.get("regla")}
+{name:"Usuario",value:user.username,true},
 
-⚠ Abuso de permisos
-${data.get("abuso")}
+{name:"ID",value:user.id,true},
 
-⭐ Por qué elegirte
-${data.get("porque_elegirte")}
+{name:"Edad",value:data.get("edad")},
 
-🔥 Motivación
-${data.get("motivacion")}
+{name:"Discusión miembros",value:data.get("discusion")},
 
-💪 Cualidades
-${data.get("cualidades")}
+{name:"Filtración staff",value:data.get("filtracion")},
 
-➕ Extra
-${data.get("extra")}
-`
+{name:"Protesta comunidad",value:data.get("regla")},
+
+{name:"Abuso permisos",value:data.get("abuso")},
+
+{name:"Por qué elegirte",value:data.get("porque")},
+
+{name:"Motivación",value:data.get("motivacion")},
+
+{name:"Cualidades",value:data.get("cualidades")},
+
+{name:"Extra",value:data.get("extra")}
+
+]
+
+}]
+
 };
 
 await fetch(webhook,{
@@ -67,13 +83,11 @@ method:"POST",
 headers:{
 "Content-Type":"application/json"
 },
-body:JSON.stringify(mensaje)
+body:JSON.stringify(embed)
 });
 
-alert("Formulario enviado correctamente");
+alert("Postulación enviada");
 
 form.reset();
-
-progress.style.width="0%";
 
 });

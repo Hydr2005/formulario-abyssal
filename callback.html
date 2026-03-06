@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
-<title>Callback</title>
+<title>Login...</title>
 </head>
 
 <body>
 
 <script>
-window.location.href="formulario.html";
+
+const hash=window.location.hash;
+
+if(!hash){
+
+window.location="index.html";
+
+}
+
+const params=new URLSearchParams(hash.replace("#",""));
+
+const token=params.get("access_token");
+
+localStorage.setItem("discord_token",token);
+
+window.location="formulario.html";
+
 </script>
 
 </body>
+
 </html>
