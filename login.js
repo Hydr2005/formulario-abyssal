@@ -1,12 +1,12 @@
-const CLIENT_ID = "1479450889654763520";
+const CLIENT_ID = "1479450889654763520"
+const REDIRECT_URI = "https://hydr2005.github.io/formulario-abyssal/callback.html"
 
-const REDIRECT_URI = "https://hydr2005.github.io/formulario-abyssal/callback.html";
+document.getElementById("login").onclick = () => {
 
-function login(){
+const url =
 
-const url = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
+`https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify`
 
-window.location.href = url;
-
+window.location.href = url
 
 }
